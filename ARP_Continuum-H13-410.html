@@ -9,6 +9,8 @@
 		<title>MDF-Team of Thermal-Mechanical Simulation</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
           <title>Model Viewer</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
@@ -16,6 +18,15 @@
       width:  300px;
       height: 200px;
       margin: 0 auto;
+      background-color: transparent;
+    }
+    model-viewer::part(default-ar-button) {
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 4px;
+      backdrop-filter: blur(10px);
+    }
+    model-viewer::part(default-ar-button):hover {
+      background-color: rgba(0, 0, 0, 0.7);
     }
   </style>
 		<link rel="stylesheet" href="asset/css/main.css" />
@@ -32,11 +43,11 @@
 							<h1>Cracking<br>(H13-410NIMo)</h1>
 						</header>
                         <p>STATIC MODEL: Stress(S33)</p>
-                          <model-viewer src="asset/ARP/Continuum/H13-410_Static.glb" ios-src="asset/ARP/Continuum/H13-410_Static.usdz" ar ar-modes="webxr scene-viewer quick-look" ar-scale="auto" camera-controls orientation="90deg 90deg 0deg" scale="0.1 0.1 0.1">
+                          <model-viewer src="asset/ARP/Continuum/H13-410_Static.glb" ios-src="asset/ARP/Continuum/H13-410_Static.usdz" ar ar-modes="webxr scene-viewer quick-look" ar-scale="auto" camera-controls interaction-policy="allow-when-focused" orientation="90deg 90deg 0deg" scale="0.1 0.1 0.1" loading="auto" reveal="interaction">
                           </model-viewer>
                         
                         <p>STATIC MODEL: Stress (S11)</p>
-                          <model-viewer src="asset/ARP/Continuum/H13-410-S11_Static.glb" ios-src="asset/ARP/Continuum/H13-410-S11_Static.usdz" ar ar-modes="webxr scene-viewer quick-look" ar-scale="auto" camera-controls orientation="90deg 90deg 0deg" scale="0.1 0.1 0.1">
+                          <model-viewer src="asset/ARP/Continuum/H13-410-S11_Static.glb" ios-src="asset/ARP/Continuum/H13-410-S11_Static.usdz" ar ar-modes="webxr scene-viewer quick-look" ar-scale="auto" camera-controls interaction-policy="allow-when-focused" orientation="90deg 90deg 0deg" scale="0.1 0.1 0.1" loading="auto" reveal="interaction">
                           </model-viewer> 
                         
 <!--                        <p>DYNAMIC MODEL</p>
