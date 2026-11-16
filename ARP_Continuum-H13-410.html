@@ -9,17 +9,52 @@
 		<title>MDF-Team of Thermal-Mechanical Simulation</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-          <title>Model Viewer</title>
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-  <style>
-    model-viewer{
-      width:  300px;
-      height: 200px;
-      margin: 0 auto;
-    }
-  </style>
 		<link rel="stylesheet" href="asset/css/main.css" />
 		<noscript><link rel="stylesheet" href="asset/css/noscript.css" /></noscript>
+		<script type="module" src="https://unpkg.com/@google/model-viewer@4.4.0/dist/model-viewer.min.js"></script>
+		<style>
+			/*
+			  iOS Safari / WebKit blanks WebGL (<model-viewer>) when ancestors use CSS 3D
+			  perspective, rotateX transforms, or non-1 opacity (HTML5 UP Identity template).
+			  These overrides load after main.css and apply only to this page.
+			*/
+			#wrapper {
+				-moz-perspective: none !important;
+				-webkit-perspective: none !important;
+				-ms-perspective: none !important;
+				perspective: none !important;
+			}
+
+			#main {
+				-moz-transform: none !important;
+				-webkit-transform: none !important;
+				-ms-transform: none !important;
+				transform: none !important;
+				opacity: 1 !important;
+			}
+
+			body.is-preload #main {
+				-moz-transform: none !important;
+				-webkit-transform: none !important;
+				-ms-transform: none !important;
+				transform: none !important;
+				opacity: 0 !important;
+			}
+
+			/* Invisible Identity overlay must not steal taps after fade-out */
+			body:after {
+				pointer-events: none !important;
+			}
+
+			model-viewer {
+				width: 100%;
+				max-width: 300px;
+				height: 220px;
+				margin: 0 auto;
+				display: block;
+				background-color: #f2f2f2;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -31,14 +66,40 @@
 						<header>
 							<h1>Cracking<br>(H13-410NIMo)</h1>
 						</header>
-                        <p>STATIC MODEL: Stress(S33)</p>
-                          <model-viewer src="asset/ARP/Continuum/H13-410_Static.glb" ios-src="asset/ARP/Continuum/H13-410_Static.usdz" ar ar-modes="quick-look" ar-scale="auto" camera-controls exposure="1.2" shadow-intensity="1" tone-mapping="auto" orientation="90deg 90deg 0deg" scale="0.1 0.1 0.1">
-                          </model-viewer>
-                        
-                        <p>STATIC MODEL: Stress (S11)</p>
-                          <model-viewer src="asset/ARP/Continuum/H13-410-S11_Static.glb" ios-src="asset/ARP/Continuum/H13-410-S11_Static.usdz" ar ar-modes="quick-look" ar-scale="auto" camera-controls exposure="1.2" shadow-intensity="1" tone-mapping="auto" orientation="90deg 90deg 0deg" scale="0.1 0.1 0.1">
-                          </model-viewer> 
-                        
+						<p>STATIC MODEL: Stress(S33)</p>
+						<model-viewer
+							src="asset/ARP/Continuum/H13-410_Static.glb"
+							ios-src="asset/ARP/Continuum/H13-410_Static.usdz"
+							alt="H13-410 static stress S33 continuum model"
+							ar
+							ar-modes="webxr scene-viewer quick-look"
+							ar-scale="auto"
+							camera-controls
+							touch-action="pan-y"
+							exposure="1.2"
+							shadow-intensity="1"
+							tone-mapping="auto"
+							orientation="90deg 90deg 0deg"
+							scale="0.1 0.1 0.1">
+						</model-viewer>
+
+						<p>STATIC MODEL: Stress (S11)</p>
+						<model-viewer
+							src="asset/ARP/Continuum/H13-410-S11_Static.glb"
+							ios-src="asset/ARP/Continuum/H13-410-S11_Static.usdz"
+							alt="H13-410 static stress S11 continuum model"
+							ar
+							ar-modes="webxr scene-viewer quick-look"
+							ar-scale="auto"
+							camera-controls
+							touch-action="pan-y"
+							exposure="1.2"
+							shadow-intensity="1"
+							tone-mapping="auto"
+							orientation="90deg 90deg 0deg"
+							scale="0.1 0.1 0.1">
+						</model-viewer>
+
 <!--                        <p>DYNAMIC MODEL</p>
                           <model-viewer src="asset/ARP/Continuum/Continuum_Dynamic.glb" ios-src="asset/ARP/Continuum/Continuum_Dynamic.usdz" autoplay ar ar-modes="webxr scene-viewer quick-look" ar-scale="auto" camera-controls>
                           </model-viewer>  -->
@@ -68,8 +129,3 @@
 
 	</body>
 </html>
-
-
-
-
-
